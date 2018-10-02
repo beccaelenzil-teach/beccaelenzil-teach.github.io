@@ -1,25 +1,22 @@
 circle_list = []
-n = 1000
-h = 750
-w = 1378
+n = 500
+h = 757
+w = 1400
 m = 0
-
 mult = 50000
-
 dt = 400
-
 var img;
-//var song;
+var song;
 
 function preload(){
   song = loadSound("01Serpentine.m4a")
-  img = loadImage("mountain.jpeg")
+  img = loadImage("sunrise.jpg")
 }
 
 function setup() {
   createCanvas(w,h)
-  //background(0)
-  image(img,0,0,50)
+  image(img,0,0)
+  //tint(255, 127); 
   song.loop()
 
   fill(random(0,256))
@@ -28,13 +25,12 @@ function setup() {
   	circ = new circle(random(0,w+1),random(0,h+1),random(9,12),[random(0,256),random(0,256),random(0,256)])//random([-4,-2,2,4]),random([-4,-2,2,4]))
   	circle_list.push(circ)
   }
-
 }
 
 function draw() {
   //background(0,0,0,50)
-  
   image(img,0,0)
+  //tint(255, 127); 
 
   if(mouseIsPressed) {
   	clear()
@@ -45,7 +41,6 @@ function draw() {
   		circ = new circle(random(0,w+1),random(0,h+1),random(9,12),[random(0,256),random(0,256),random(0,256)])//,random([-4,-2,2,4]),random([-4,-2,2,4]))
   		circle_list.push(circ)
   	}
-
   }
 
  
@@ -55,8 +50,6 @@ function draw() {
 
       dist = sqrt(Math.pow((mouseX-circle_list[i].x),2) + Math.pow((mouseY-circle_list[i].y),2))
       
-        
-        
         if (circle_list[i].x > mouseX){
           circle_list[i].speed_x = mult*1/(dist*dist)
         }
@@ -70,44 +63,15 @@ function draw() {
           circle_list[i].speed_y = -mult*1/(dist*dist)
         }
         
-
-        //circle_list[i].speed_y = mouseY-circle_list[i].y*1/dist/2
-        //circle_list[i].speed_x = mouseX-circle_list[i].x*1/dist/2
-
         circle_list[i].move()
-
-      
-      
-
-  		/*if (circle_list[i].x > w || circle_list[i].x < 0){
-  			circle_list[i].change_x()
-  		}
-  		if (circle_list[i].y > h || circle_list[i].y < 0){
-  			circle_list[i].change_y()
-  		}
-      */
   }
-
-
-  /*d = random(15,25)
-  //fill(random(0,256),random(0,256),random(0,256))
-  fill(100,100,100)
-  //ellipse(mouseX,mouseY,d,d)
-  ellipse(mouseX,mouseY,30,30)
-  */
 
   noCursor()
   d = random(15,25)
   fill(cursor_color)
-  //fill(100,100,100)
-  //ellipse(mouseX,mouseY,d,d)
   ellipse(mouseX,mouseY,30,30)
-  
-
-  	
 
   m+=1
-
 }
 
 //function circle(x,y,d,speed_x,speed_y,fill_color){
