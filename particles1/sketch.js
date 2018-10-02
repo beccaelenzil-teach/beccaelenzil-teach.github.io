@@ -34,7 +34,7 @@ function draw() {
 
   if(mouseIsPressed) {
   	clear()
-  	background([random(0,256),random(0,256),random(0,256)])
+  	//background([random(0,256),random(0,256),random(0,256)])
     cursor_color = [random(0,256),random(0,256),random(0,256)]
   	circle_list = []
   	for(i=0; i<n; i++){
