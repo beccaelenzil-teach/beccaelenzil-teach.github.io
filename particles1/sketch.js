@@ -10,13 +10,14 @@ mult = 50000
 dt = 400
 
 var img;
+var song;
 
 
 function setup() {
   createCanvas(w,h)
   background(0)
   img = loadImage("mountain.jpeg")
-  song = loadSong("01Serpentine.m4a")
+  //song = loadSound("01Serpentine.m4a")
   fill(random(0,256))
   cursor_color = [random(0,256),random(0,256),random(0,256)]
   for(i=0; i<n; i++){
@@ -30,7 +31,7 @@ function draw() {
   //background(0,0,0,50)
   
   image(img,0,0)
-  song.play()
+  //song.play()
 
   if(mouseIsPressed) {
   	clear()
