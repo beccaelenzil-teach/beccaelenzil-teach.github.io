@@ -10,7 +10,7 @@ mult = 50000
 dt = 400
 
 var img;
-var song;
+//var song;
 
 
 function setup() {
