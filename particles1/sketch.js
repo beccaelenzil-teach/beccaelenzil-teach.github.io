@@ -15,8 +15,9 @@ var img;
 
 function setup() {
   createCanvas(w,h)
-  background(0)
+  //background(0)
   img = loadImage("mountain.jpeg")
+  image(img,0,0)
   //song = loadSound("01Serpentine.m4a")
   fill(random(0,256))
   cursor_color = [random(0,256),random(0,256),random(0,256)]
