@@ -9,12 +9,14 @@ mult = 50000
 
 dt = 400
 
+var img
+
 
 
 function setup() {
   createCanvas(w,h)
   background(0)
-  //img = loadImage("mountain.jpeg")
+  img = loadImage("mountain.jpeg")
   fill(random(0,256))
   cursor_color = [random(0,256),random(0,256),random(0,256)]
   for(i=0; i<n; i++){
@@ -25,8 +27,8 @@ function setup() {
 }
 
 function draw() {
-  //Image(img,0,0)
-  background(0,0,0,50)
+  Image(img,0,0)
+  //background(0,0,0,50)
 
   if(mouseIsPressed) {
   	clear()
