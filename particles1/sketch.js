@@ -1,11 +1,10 @@
 circle_list = []
-n = 500
+n = 1000
 h = 750
 w = 1378
 m = 0
 
 mult = 50000
-
 
 dt = 400
 
@@ -14,14 +13,15 @@ var img;
 
 function preload(){
   song = loadSound("01Serpentine.m4a")
+  img = loadImage("mountain.jpeg")
 }
 
 function setup() {
   createCanvas(w,h)
   //background(0)
-  img = loadImage("mountain.jpeg")
-  image(img,0,0)
+  image(img,0,0,50)
   song.loop()
+
   fill(random(0,256))
   cursor_color = [random(0,256),random(0,256),random(0,256)]
   for(i=0; i<n; i++){
