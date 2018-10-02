@@ -9,8 +9,7 @@ mult = 50000
 
 dt = 400
 
-var img
-
+var img;
 
 
 function setup() {
@@ -27,8 +26,9 @@ function setup() {
 }
 
 function draw() {
-  image(img,0,0)
   //background(0,0,0,50)
+  
+  image(img,0,0)
 
   if(mouseIsPressed) {
   	clear()
