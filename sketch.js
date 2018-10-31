@@ -95,7 +95,7 @@ function drawBoard(A,cell_size){
         fill(255,200,0)
       }
       else if (A[row][col].type == 2){
-        fill(50,255,50)
+        fill(50,200,50)
       }
       else if (A[row][col].type == 3){
         fill(50,50,255)
