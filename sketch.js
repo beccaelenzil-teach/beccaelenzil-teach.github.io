@@ -90,18 +90,20 @@ function drawBoard(A,cell_size){
       x_pos = ((cell_size+spacing) * col) + xoffset
       A[row][col].xpos = x_pos
       A[row][col].ypos = y_pos
+      x = abs(A[row][col].x)
+      y = abs(A[row][col].y)
       noStroke()
       if (A[row][col].type == 1){
-        fill(255,200,0)
+        fill((16+y)/20*255,(16+x)/20*200,0)
       }
       else if (A[row][col].type == 2){
-        fill(50,200,50)
+        fill((6+x)/10*50,(10-x)/10*255,(6+x)/10*50)
       }
       else if (A[row][col].type == 3){
-        fill(50,50,255)
+        fill(50,(10-x)/10*50,(10-x)/10*255)
       }
       else if (A[row][col].type == 4){
-        fill(255,50,50)
+        fill((10-x)/10*255,(10-x)/10*50,50)
       }
       rect(x_pos,y_pos,cell_size,cell_size)
       
