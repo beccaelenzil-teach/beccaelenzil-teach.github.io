@@ -1,5 +1,6 @@
 //intialize variables
 var img;
+var t = 0;
 
 function setup() {
   createCanvas(600, 600);
