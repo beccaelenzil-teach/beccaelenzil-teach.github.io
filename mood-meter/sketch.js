@@ -1,4 +1,4 @@
-var board_size = windowHeight*0.75
+var board_size = window.innerHeight*0.95
 var spacing = 5.0
 var xoffset = 10.0
 var yoffset = 10.0
@@ -78,16 +78,20 @@ function createBoard(cell_num){
 
 
 function calculate_cell_size(board_size,cell_num){
-  cell_size = (board_size-(cell_num)*spacing)/(cell_num)
+  factor = board_size/600
+  new_spacing = spacing
+  cell_size = (board_size-(cell_num)*new_spacing)/(cell_num)
   return cell_size
 }
 
 
 function drawBoard(A,cell_size){
+  factor = board_size/600
+  new_spacing = spacing
   for (row = 0; row < A[0].length; row++){
-    y_pos = ((cell_size+spacing) * row) + yoffset
+    y_pos = ((cell_size+new_spacing) * row) + yoffset
     for (col = 0; col < A.length; col++){
-      x_pos = ((cell_size+spacing) * col) + xoffset
+      x_pos = ((cell_size+new_spacing) * col) + xoffset
       A[row][col].xpos = x_pos
       A[row][col].ypos = y_pos
       x = abs(A[row][col].x)
@@ -110,7 +114,7 @@ function drawBoard(A,cell_size){
       the_word = A[row][col].word
       if (mouseX > A[row][col].xpos && mouseX < A[row][col].xpos + cell_size && mouseY > A[row][col].ypos && mouseY < A[row][col].ypos+ cell_size){
       	fill(255)
-        textSize(16*(20-the_word.length)/12.5)
+        textSize(factor*16*(20-the_word.length)/12.5)
         textAlign(CENTER);
         textStyle(BOLD);
         //textStyle(ITALIC);
@@ -118,7 +122,7 @@ function drawBoard(A,cell_size){
       }
       else{
         fill(255)
-        textSize(16*(20-the_word.length)/13)
+        textSize(factor*16*(20-the_word.length)/13)
         textAlign(CENTER);
         textStyle(NORMAL);
         text(the_word,x_pos+cell_size/2,y_pos+cell_size/2)
@@ -144,10 +148,9 @@ function setup() {
 }
 
 function draw(){
-  
-  
+  board_size = window.innerHeight*0.95
   background(255);
-
+  cell_size = calculate_cell_size(board_size,cell_num)
   drawBoard(A,cell_size)
   
   /*for (i = 0; i<all_cells.length; i++){
