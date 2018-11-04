@@ -1,4 +1,4 @@
-var board_size = 600.0
+var board_size = windowHeight*0.75
 var spacing = 5.0
 var xoffset = 10.0
 var yoffset = 10.0
