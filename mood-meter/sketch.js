@@ -4,6 +4,7 @@ var xoffset = 10.0
 var yoffset = 10.0
 var cell_num = 8
 var initialize_board = 1
+var link_word = ''
 var words = [['enraged', 'panicked', 'stressed','shocked',
                  'surprised','upbeat','exhilirated','ecstatic'],
             ['livid','frightened','nervous','restless',
@@ -23,6 +24,7 @@ var words = [['enraged', 'panicked', 'stressed','shocked',
 
 var creative = {}
 var all_cells = []
+
 
 function Cell(row,col,type,word){
   this.row = row
@@ -112,25 +114,78 @@ function drawBoard(A,cell_size){
       rect(x_pos,y_pos,cell_size,cell_size)
       
       the_word = A[row][col].word
-      if (mouseX > A[row][col].xpos && mouseX < A[row][col].xpos + cell_size && mouseY > A[row][col].ypos && mouseY < A[row][col].ypos+ cell_size){
-      	fill(255)
+      
+      if (mouseX > A[row][col].xpos && mouseX < A[row][col].xpos + cell_size && mouseY > A[row][col].ypos && mouseY < A[row][col].ypos+ cell_size
+        && (the_word == "thrilled" || the_word == "frightened" || the_word == "tense" || the_word == "chill" || 
+        the_word == "calm" || the_word == "sad" || the_word == "peaceful" || the_word == "mellow" )){
+      	fill(0)
         textSize(factor*16*(20-the_word.length)/12.5)
         textAlign(CENTER);
         textStyle(BOLD);
         //textStyle(ITALIC);
         text(the_word,x_pos+cell_size/2,y_pos+cell_size/2)
+
+        link_word = the_word
       }
+      else if (mouseX > A[row][col].xpos && mouseX < A[row][col].xpos + cell_size && mouseY > A[row][col].ypos && mouseY < A[row][col].ypos+ cell_size){
+        fill(255)
+        textSize(factor*16*(20-the_word.length)/12.5)
+        textAlign(CENTER);
+        textStyle(BOLD);
+        //textStyle(ITALIC);
+        text(the_word,x_pos+cell_size/2,y_pos+cell_size/2)
+
+        link_word = the_word
+      } 
       else{
         fill(255)
         textSize(factor*16*(20-the_word.length)/13)
         textAlign(CENTER);
         textStyle(NORMAL);
         text(the_word,x_pos+cell_size/2,y_pos+cell_size/2)
+        link_word = ''
       }
+
+      if (link_word == "thrilled" && mouseIsPressed){
+        window.open("https://beccaelenzil-teach.github.io/computer-art/eli/index.html")
+      }
+      else if (link_word == "frightened" && mouseIsPressed){
+        window.open("https://beccaelenzil-teach.github.io/computer-art/anne/index.html")
+      }
+      else if (link_word == "tense" && mouseIsPressed){
+        window.open("https://beccaelenzil-teach.github.io/computer-art/erik/index.html")
+      }
+      else if (link_word == "sad" && mouseIsPressed){
+        window.open("https://beccaelenzil-teach.github.io/computer-art/elise/index.html")
+      }
+      else if (link_word == "calm" && mouseIsPressed){
+        window.open("https://beccaelenzil-teach.github.io/computer-art/esrom/index.html")
+      }
+      else if (link_word == "peaceful" && mouseIsPressed){
+        window.open("https://beccaelenzil-teach.github.io/computer-art/lyla/index.html")
+      }
+      else if (link_word == "mellow" && mouseIsPressed){
+        window.open("https://beccaelenzil-teach.github.io/computer-art/meimei/index.html")
+      }
+      else if (link_word == "chill" && mouseIsPressed){
+        window.open("https://beccaelenzil-teach.github.io/computer-art/melis/index.html")
+      }
+      
+      
+      
+
+
+        
+      
+
+
+      
     
     }
   }
 }
+
+
 
 
 function setup() { 
@@ -142,8 +197,10 @@ function setup() {
   	for (row = 0; row < cell_num; row++){
     	creative[words[row][col]] = [row,col]
       all_cells.push(A[row][col])
+      
     }
   }
+
 
 }
 
@@ -152,6 +209,8 @@ function draw(){
   background(255);
   cell_size = calculate_cell_size(board_size,cell_num)
   drawBoard(A,cell_size)
+  
+
   
   /*for (i = 0; i<all_cells.length; i++){
     if (mouseX > all_cells[i].xpos && mouseX < all_cells[i].xpos + cell_size && mouseY > all_cells[i].ypos && mouseY < all_cells[i].ypos+ cell_size){
