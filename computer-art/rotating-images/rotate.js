@@ -11,12 +11,14 @@ function preload(){
 
 function setup() {
   createCanvas(800, 400, WEBGL);
-  vid.elt.muted = true;
+  //vid.elt.muted = true;
+  
   vid.loop();
   vid.hide();
 }
 
 function draw() {
+  vid.volume(0.05)
   background(0)
 
   texture(img,0,0);
