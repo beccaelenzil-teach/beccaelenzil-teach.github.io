@@ -6,7 +6,7 @@ var cell_num = 8
 var initialize_board = 1
 var link_word = ''
 var words = [['enraged', 'panicked', 'stressed','shocked',
-                 'surprised','upbeat','exhilirated','ecstatic'],
+                 'surprised','upbeat','exhilarated','ecstatic'],
             ['livid','frightened','nervous','restless',
             'hyper','motivated','inspired','elated'],
                 ['fuming','apprehensive','tense','annoyed',
